@@ -23,7 +23,8 @@ export class TodolistComponent implements OnInit {
   }
 
   getData(): void {
-    this.todoItems = this.todoListService.getData();
+    this.todoListService.getData().
+      subscribe(todoItems => this.todoItems = todoItems);
   }
 
 }
