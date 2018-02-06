@@ -6,13 +6,16 @@ import { of } from 'rxjs/observable/of';
 import { TodoItem } from './todoitem';
 import { TODOITEMS } from './mock-todoitems';
 
+import { MessageService } from './message.service';
+
 
 @Injectable()
 export class TodolistService {
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   getData(): Observable<TodoItem[]> {
+    this.messageService.add('TodolistService: fetching data');
     return of(TODOITEMS);
   }
 
