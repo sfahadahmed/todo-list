@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { TodolistDetailComponent } from './todolist-detail/todolist-detail.component';
+import { TodolistService } from './todolist.service';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { TodolistDetailComponent } from './todolist-detail/todolist-detail.compo
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [TodolistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
