@@ -1,0 +1,6 @@
+<h1>Todo List</h1>
+<ul class="todolist">
+  <li *ngFor="let todoItem of todoItems">
+    <span class="badge">{{ todoItem.id}}</span> {{todoItem.title}}
+  </li>
+</ul>
