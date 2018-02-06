@@ -1,0 +1,13 @@
+<div *ngIf="selectedTodoItem">
+  <div>
+    <label>Title:
+      <input [(ngModel)]="selectedTodoItem.title" placeholder="title">
+    </label>
+  </div>
+
+  <div>
+    <label>Description:
+      <input [(ngModel)]="selectedTodoItem.description" placeholder="description">
+    </label>
+  </div>
+</div>

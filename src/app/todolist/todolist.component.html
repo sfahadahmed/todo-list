@@ -1,6 +1,8 @@
-<h1>Todo List</h1>
+<h1>Things To do</h1>
 <ul class="todolist">
-  <li *ngFor="let todoItem of todoItems">
-    <span class="badge">{{ todoItem.id}}</span> {{todoItem.title}}
+  <li *ngFor="let todoItem of todoItems" (click)="onSelect(todoItem)" [class.selected]="todoItem == selectedTodoItem">
+    <span class="badge">{{todoItem.id}}</span> {{todoItem.title}}
   </li>
 </ul>
+
+<app-todolist-detail [todoItem]="selectedTodoItem"></app-todolist-detail>

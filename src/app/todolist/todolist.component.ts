@@ -10,10 +10,15 @@ import { TODOITEMS } from '../mock-todoitems'
 export class TodolistComponent implements OnInit {
 
   todoItems = TODOITEMS;
+  selectedTodoItem: TodoItem;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(todoItem: TodoItem): void {
+    this.selectedTodoItem = todoItem;
   }
 
 }
