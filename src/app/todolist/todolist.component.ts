@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 import { TodoItem } from '../todoitem'
 import { TodolistService } from '../todolist.service';
 
@@ -10,17 +12,17 @@ import { TodolistService } from '../todolist.service';
 export class TodolistComponent implements OnInit {
 
   todoItems: TodoItem[];
-  selectedTodoItem: TodoItem;
+  //selectedTodoItem: TodoItem;
 
-  constructor(private todoListService: TodolistService) { }
+  constructor(private todoListService: TodolistService, private routerModule: RouterModule) { }
 
   ngOnInit() {
     this.getData();
   }
 
-  onSelect(todoItem: TodoItem): void {
+  /*onSelect(todoItem: TodoItem): void {
     this.selectedTodoItem = todoItem;
-  }
+  }*/
 
   getData(): void {
     this.todoListService.getData().

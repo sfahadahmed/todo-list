@@ -1,8 +1,10 @@
-<h1>Things To Do</h1>
 <ul class="todolist">
-  <li *ngFor="let todoItem of todoItems" (click)="onSelect(todoItem)" [class.selected]="todoItem == selectedTodoItem">
-    <span class="badge">{{todoItem.id}}</span> {{todoItem.title}}
+  <!--<li *ngFor="let todoItem of todoItems" [class.selected]="todoItem == selectedTodoItem" routerLink="">-->
+  <li *ngFor="let todoItem of todoItems">
+      <a routerLink="/detail/{{todoItem.id}}">
+        <span class="badge">{{todoItem.id}}</span> {{todoItem.title}}
+      </a>
   </li>
 </ul>
-
-<app-todolist-detail [todoItem]="selectedTodoItem"></app-todolist-detail>
+<!-- (click)="onSelect(todoItem)" -->
+<!--<app-todolist-detail [todoItem]="selectedTodoItem"></app-todolist-detail>-->
