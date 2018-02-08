@@ -22,4 +22,8 @@ export class TodolistService {
     return of(TODOITEMS.find(todoItem => todoItem.id === id));
   }
 
+  save(todoItem: TodoItem): void {
+    todoItem.id = TODOITEMS.length+1;
+    TODOITEMS.push(todoItem);
+  }
 }

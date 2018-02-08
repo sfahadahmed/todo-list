@@ -1,0 +1,17 @@
+<div>
+  <div>
+    <label>Title:
+      <input [(ngModel)]="todoItem.title" placeholder="title">
+    </label>
+  </div>
+
+  <div>
+    <label>Description:
+      <input [(ngModel)]="todoItem.description" placeholder="description">
+    </label>
+  </div>
+
+  <div>
+    <button (click)="save()">Save</button>
+  </div>
+</div>
