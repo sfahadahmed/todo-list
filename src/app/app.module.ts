@@ -9,6 +9,8 @@ import { TodolistDetailComponent } from './todolist-detail/todolist-detail.compo
 import { TodolistService } from './todolist.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { TodolistNewComponent } from './todolist-new/todolist-new.component';
 
 
 @NgModule({
@@ -16,11 +18,13 @@ import { MessageService } from './message.service';
     AppComponent,
     TodolistComponent,
     TodolistDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    TodolistNewComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [TodolistService, MessageService],
   bootstrap: [AppComponent]
