@@ -1,13 +1,8 @@
 <div *ngIf="todoItem">
+  <h2>{{todoItem.title}}</h2>
+  <h3>{{todoItem.description}}</h3>
+  
   <div>
-    <label>Title:
-      <input [(ngModel)]="todoItem.title" placeholder="title">
-    </label>
-  </div>
-
-  <div>
-    <label>Description:
-      <input [(ngModel)]="todoItem.description" placeholder="description">
-    </label>
+    <button (click)="back()">Back</button>
   </div>
 </div>
