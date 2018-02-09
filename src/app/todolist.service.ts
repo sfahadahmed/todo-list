@@ -43,4 +43,15 @@ export class TodolistService {
   removeAll(): void {
     this.todoItems = [];
   }
+
+  remove(id: number): Observable<TodoItem[]> {
+    for(var i = 0; i < this.todoItems.length; ++i){
+      if(this.todoItems[i].id == id){
+        this.todoItems.splice(i, 1);
+        break;
+      }
+    }
+
+    return of(this.todoItems);
+  }
 }

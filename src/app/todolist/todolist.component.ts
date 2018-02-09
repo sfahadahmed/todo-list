@@ -33,4 +33,9 @@ export class TodolistComponent implements OnInit {
     this.todoListService.removeAll();
     this.getData();
   }
+
+  remove(id: number): void {
+    //this.todoItems = this.todoItems.filter(obj => obj !== todoItem);
+    this.todoListService.remove(id).subscribe(todoItems => this.todoItems = todoItems);
+  }
 }
