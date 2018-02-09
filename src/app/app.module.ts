@@ -11,7 +11,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { TodolistNewComponent } from './todolist-new/todolist-new.component';
-
+import { TodolistEditComponent } from './todolist-edit/todolist-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { TodolistNewComponent } from './todolist-new/todolist-new.component';
     TodolistComponent,
     TodolistDetailComponent,
     MessagesComponent,
-    TodolistNewComponent
+    TodolistNewComponent,
+    TodolistEditComponent
   ],
   imports: [
     BrowserModule,

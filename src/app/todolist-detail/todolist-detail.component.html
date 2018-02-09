@@ -3,6 +3,7 @@
   <h3>{{todoItem.description}}</h3>
   
   <div>
+    <button routerLink="/edit/{{todoItem.id}}">Edit</button>
     <button (click)="back()">Back</button>
   </div>
 </div>

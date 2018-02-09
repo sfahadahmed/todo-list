@@ -26,4 +26,13 @@ export class TodolistService {
     todoItem.id = TODOITEMS.length+1;
     TODOITEMS.push(todoItem);
   }
+
+  update(todoItem: TodoItem): void {
+    // TODO: find and update existing todo item
+    for(var i = 0; i < TODOITEMS.length; ++i){
+      if(TODOITEMS[i].id == todoItem.id){
+        TODOITEMS[i] = todoItem;
+      }
+    }
+  }
 }
