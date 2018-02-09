@@ -27,7 +27,19 @@ export class TodolistService {
   }
 
   save(todoItem: TodoItem): void {
-    todoItem.id = this.todoItems.length+1;
+
+    // assign the max id available
+    let maxId: number = -1;
+    if(this.todoItems.length > 0)
+      maxId = this.todoItems[0].id;
+
+    for(let i = 0; i < this.todoItems.length; ++i){
+      if(this.todoItems[i].id > maxId){
+        maxId = this.todoItems[i].id;
+      }
+    }
+
+    todoItem.id = maxId+1;
     this.todoItems.push(todoItem);
   }
 
