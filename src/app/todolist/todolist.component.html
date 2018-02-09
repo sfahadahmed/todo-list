@@ -3,9 +3,9 @@
 
 <ul class="todolist">
   <!--<li *ngFor="let todoItem of todoItems" [class.selected]="todoItem == selectedTodoItem" routerLink="">-->
-  <li *ngFor="let todoItem of todoItems">
+  <li *ngFor="let todoItem of todoItems; let i = index">
       <a routerLink="/detail/{{todoItem.id}}">
-        <span class="badge">{{todoItem.id}}</span> {{todoItem.title}}
+        <span class="badge">{{i+1}}</span> {{todoItem.title}}
       </a>
       <button class="delete" title="Remove" (click)="remove(todoItem.id)">x</button>
   </li>
