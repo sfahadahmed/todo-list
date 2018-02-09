@@ -10,29 +10,37 @@ import { MessageService } from './message.service';
 @Injectable()
 export class TodolistService {
 
-  constructor(private messageService: MessageService) { }
+  todoItems: TodoItem[];
+
+  constructor(private messageService: MessageService) {
+    this.todoItems = TODOITEMS;
+  }
 
   getData(): Observable<TodoItem[]> {
     this.messageService.add('TodolistService: fetching data');
-    return of(TODOITEMS);
+    return of(this.todoItems);
   }
 
   getDataById(id: number): Observable<TodoItem>{
     this.messageService.add(`TodolistService: fetched  id=${id}`);
-    return of(TODOITEMS.find(todoItem => todoItem.id === id));
+    return of(this.todoItems.find(todoItem => todoItem.id === id));
   }
 
   save(todoItem: TodoItem): void {
-    todoItem.id = TODOITEMS.length+1;
-    TODOITEMS.push(todoItem);
+    todoItem.id = this.todoItems.length+1;
+    this.todoItems.push(todoItem);
   }
 
   update(todoItem: TodoItem): void {
     // TODO: find and update existing todo item
-    for(var i = 0; i < TODOITEMS.length; ++i){
-      if(TODOITEMS[i].id == todoItem.id){
-        TODOITEMS[i] = todoItem;
+    for(var i = 0; i < this.todoItems.length; ++i){
+      if(this.todoItems[i].id == todoItem.id){
+        this.todoItems[i] = todoItem;
       }
     }
+  }
+
+  removeAll(): void {
+    this.todoItems = [];
   }
 }
