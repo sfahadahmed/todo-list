@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
@@ -25,7 +25,11 @@ import { TodolistEditComponent } from './todolist-edit/todolist-edit.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LocalStorageModule.withConfig({
+      prefix: 'todo-list-app',
+      storageType: 'localStorage'
+    })
   ],
   providers: [TodolistService, MessageService],
   bootstrap: [AppComponent]

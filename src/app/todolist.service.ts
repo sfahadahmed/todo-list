@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 import { TodoItem } from './todoitem';
 import { TODOITEMS } from './mock-todoitems';
@@ -12,8 +13,16 @@ export class TodolistService {
 
   todoItems: TodoItem[];
 
-  constructor(private messageService: MessageService) {
-    this.todoItems = TODOITEMS;
+  constructor(private localStorageService: LocalStorageService, private messageService: MessageService) {
+    //localStorageService.remove('todo-items');
+    let value = localStorageService.get('todo-items');
+    if(!value || (Array.isArray(value) && value.length == 0)){
+      localStorageService.set('todo-items', JSON.stringify(TODOITEMS));
+      this.todoItems = TODOITEMS;
+    }
+    else{
+      this.todoItems = JSON.parse(this.localStorageService.get('todo-items'));
+    }
   }
 
   getData(): Observable<TodoItem[]> {
@@ -41,6 +50,7 @@ export class TodolistService {
 
     todoItem.id = maxId+1;
     this.todoItems.push(todoItem);
+    this.localStorageService.set('todo-items', JSON.stringify(this.todoItems));
   }
 
   update(todoItem: TodoItem): void {
@@ -50,10 +60,13 @@ export class TodolistService {
         this.todoItems[i] = todoItem;
       }
     }
+
+    this.localStorageService.set('todo-items', JSON.stringify(this.todoItems));
   }
 
   removeAll(): void {
     this.todoItems = [];
+    this.localStorageService.remove('todo-items');
   }
 
   remove(id: number): Observable<TodoItem[]> {
@@ -64,6 +77,7 @@ export class TodolistService {
       }
     }
 
+    this.localStorageService.set('todo-items', JSON.stringify(this.todoItems));
     return of(this.todoItems);
   }
 }
